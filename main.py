@@ -2,29 +2,28 @@ import pygame
 import os
 import time
 import random
+
 pygame.font.init()
 
-# Change the working directory to the directory containing your assets
-os.chdir("Space-Shooter")
+# Get the absolute path to the directory containing the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+asset_dir = os.path.join(script_dir, "SpaceAsset")
 
 WIDTH, HEIGHT = 800, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Shooter Game")
 
-# Load images
-RED_SPACE_SHIP = pygame.image.load(os.path.join("SpaceAsset/PNG/Enemies", "enemyRed1.png"))
-GREEN_SPACE_SHIP = pygame.image.load(os.path.join("SpaceAsset/PNG/Enemies", "enemyGreen2.png"))
+# Load images using absolute paths
+RED_SPACE_SHIP = pygame.image.load(os.path.join(asset_dir, "PNG", "Enemies", "enemyRed1.png"))
+GREEN_SPACE_SHIP = pygame.image.load(os.path.join(asset_dir, "PNG", "Enemies", "enemyGreen2.png"))
 
-# Player ship
-BLUE_SPACE_SHIP = pygame.image.load(os.path.join("SpaceAsset/PNG", "playerShip2_blue.png"))
+BLUE_SPACE_SHIP = pygame.image.load(os.path.join(asset_dir, "PNG", "playerShip2_blue.png"))
 
-# Lasers
-RED_LASER = pygame.image.load(os.path.join("SpaceAsset/PNG/Lasers", "laserRed16.png"))
-GREEN_LASER = pygame.image.load(os.path.join("SpaceAsset/PNG/Lasers", "laserGreen16.png"))
-BLUE_LASER = pygame.image.load(os.path.join("SpaceAsset/PNG/Lasers", "laserBlue16.png"))
+RED_LASER = pygame.image.load(os.path.join(asset_dir, "PNG", "Lasers", "laserRed16.png"))
+GREEN_LASER = pygame.image.load(os.path.join(asset_dir, "PNG", "Lasers", "laserGreen16.png"))
+BLUE_LASER = pygame.image.load(os.path.join(asset_dir, "PNG", "Lasers", "laserBlue16.png"))
 
-# Background
-BG = pygame.transform.scale(pygame.image.load(os.path.join("SpaceAsset/Backgrounds", "darkPurple.png")), (WIDTH, HEIGHT))
+BG = pygame.transform.scale(pygame.image.load(os.path.join(asset_dir, "Backgrounds", "darkPurple.png")), (WIDTH, HEIGHT))
 
 class Laser:
     def __init__(self, x, y, img):
