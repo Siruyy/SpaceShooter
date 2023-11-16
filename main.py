@@ -1,12 +1,18 @@
 import pygame
 import os
+import sys
 import time
 import random
 
 pygame.font.init()
 
-# Get the absolute path to the directory containing the script
-script_dir = os.path.dirname(os.path.abspath(__file__))
+if getattr(sys, 'frozen', False):
+    # PyInstaller creates a temp folder and stores path in _MEIPASS
+    script_dir = sys._MEIPASS
+else:
+    # Use the script's directory when running normally
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
 asset_dir = os.path.join(script_dir, "SpaceAsset")
 
 WIDTH, HEIGHT = 800, 800
